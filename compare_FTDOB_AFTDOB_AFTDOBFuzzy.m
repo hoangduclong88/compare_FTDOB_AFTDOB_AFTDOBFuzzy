@@ -175,46 +175,6 @@ grid on;
 
 exportgraphics(disturbance, "disturbance.jpg", "Resolution", solution)
 
-%%
-figure;
-
-%Logging ScopeData với save format Structure with time.
-y1 = dtrue - dhatF;
-y2 = dtrue - dhatA;
-y3 = dtrue - dhatAF;
-
-%eps = out.ScopeData.signals(2).values  
-%Nơi lưu file ảnh
-path_fig = 'C:\Users\longc\My Drive\2026\2024 - A Finite-Time Disturbance Observer for Tracking Control of Nonlinear\New Idea\';
-p1 = class_user_plot(figure, path_fig);
-
-%1. Thêm 1 line mới
-p1.add_line(t,y1,'g-','LineWidth',1.0)
-
-%2. Thêm 1 line mới
-p1.add_line(t,y2,'m-','LineWidth',1.0)
-
-%2. Thêm 1 line mới
-p1.add_line(t,y3,'b-','LineWidth',1.0)
-
-%3. update thông tin file ảnh
-%- tilte, xlable, ylable, legend.
-%- ko muốn hiện thị cái nào thì để ''
-p1.update_info({'FTDOB', 'AFTDOB', 'AFTDOB-Fuzzy'}, 'Time (s)', ' ', ' ')
-
-%4. Thay đổi vị trí của tiêu đề
-% set(gca().Title,"Position",[5,3.5,0])%y
-%5. Thay đổi vị trí của t
-% set(gca().XLabel,"Position",[Tstop+1,0.4,0])%t
-%6. Giới hẹn trục y [min,max]
-%ylim(gca,[0.2,3.5]);
-
-%7. Vẽ thêm plot nhỏ: [tọa độ][data(x)][data(y)]
-p1.create_axes_sub([.30 .355 .45 .25],[1.5 2.3],[-1 1])
-
-%8. xuất file 
-p1.export_image('disturbance.jpg')
-
 %% Draw Fuzzy:
 
 % === Plot Membership Functions ===
